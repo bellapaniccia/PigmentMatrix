@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ pigment.pigment_name }}{% if pigment.kremer_id %} ({{ pigment.kremer_id }}){% endif %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>{{ pigment.pigment_name }}{% if pigment.kremer_id %} ({{ pigment.kremer_id }}){% endif %}</h1>
+
+<div class="images">
+    <div class="image-block">
+        <h4>Truecolor</h4>
+        <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_truecolor) }}" alt="Truecolor">
+    </div>
+    <div class="image-block">
+        <h4>FCIR</h4>
+        <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_fcir) }}" alt="FCIR">
+    </div>
+    <div class="image-block">
+        <h4>CIR</h4>
+        <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_cir) }}" alt="CIR">
+    </div>
+</div>
+
+<div class="actions" style="margin-top:20px;">
+    <!-- Previous / Next -->
+    <a href="{{ url_for('view_one', pid=prev_id) }}" class="btn">Previous</a>
+    <a href="{{ url_for('view_one', pid=next_id) }}" class="btn">Next</a>
+
+    <!-- Save / Favorite -->
+    {% if current_user.is_authenticated %}
+    <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
+        {% if pigment.id in saved_ids %}
+            <button type="submit" class="btn-save" style="background-color:#F094A3;">♥</button>
+        {% else %}
+            <button type="submit" class="btn-save">♡</button>
+        {% endif %}
+    </form>
+    {% endif %}
+
+    <!-- Back -->
+    <a href="{{ url_for('view') }}" class="btn-home">Back</a>
+</div>
+
+<!-- Bottom Navbar -->
+<div class="navbar-b">
+    <a href="{{ url_for('home') }}">⌂</a>
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}">Profile</a>
+        {% if current_user.is_admin %}
+            <a href="{{ url_for('add') }}">Add Pigment</a>
+            <a href="{{ url_for('admin_users') }}">All Users</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+</div>
+
+</body>
+</html>

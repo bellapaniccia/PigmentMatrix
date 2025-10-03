@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><title>Participants</title></head>
+<body>
+<h2>Pigment Entries</h2>
+<ul>
+    {% for row in data %}
+    <li>{{ row[0] }} | {{ row[1] }} | {{ row[2] }} | {{ row[3] }} | {{ row[4] }} | {{ row[5] }} | {{ row[6] }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

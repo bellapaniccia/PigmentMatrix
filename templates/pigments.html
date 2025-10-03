@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Pigment List</title></head>
+<body>
+<h2>Saved Pigments</h2>
+<ul>
+    {% for pigment in pigments %}
+    <li>{{ pigment_id }} | {{ pigment.kremer_id }} | {{ pigment.pigment_name }} | {{ pigment.fcir }} | {{ pigment.cir }}| {{
+        pigment.image_truecolor }} | {{ pigment.image_fcir }} | {{ pigment.image_cir }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="/">Add another</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

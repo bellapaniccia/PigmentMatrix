@@ -1,0 +1,457 @@
+/*
+  general body text
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F7F4F3;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+*/
+/*  headers  *//*
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #F094A3;
+}
+
+ */
+/*  top navigation bar  *//*
+
+.navbar a {
+    background-color: #CCD260;
+    overflow: hidden;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+}
+
+.navbar a:hover {
+    background-color: #F094A3;
+}
+
+}
+
+.navbar b:hover {
+    background-color: #F094A3;
+
+*/
+/* top navbar (a) *//*
+
+.navbar a {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 5px;
+    background-color: CCD260;
+    color: #F7F4F3;
+}
+
+*/
+/* bottom navbar (b) *//*
+
+.navbar b {
+   display: flex;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+    color: #F7F4F3;
+}
+
+*/
+/* buttons remain the same *//*
+
+.btn-home, .btn-cancel, .btn-save {
+    padding: 5px 15px;
+    background-color: #F094A3;
+    text-decoration: none;
+    color: #F7F4F3;
+    border-radius: 4px;
+}
+
+.btn-home:hover, .btn-cancel:hover, .btn-save:hover {
+    background-color: #F094A3;
+}
+
+*/
+/*  buttons  *//*
+
+.btn, .btn-add, .btn-home, .btn-delete, .btn-cancel, btn-prev, btn-next, btn-back
+ {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 3px;
+    transition: background-color 0.3s;
+}
+
+.btn { background-color: #ff928b; color: #F7F4F3; }
+.btn:hover { background-color: #ff6f61; }
+
+.btn-add { background-color: #ff928b; color: #F7F4F3; }
+.btn-add:hover { background-color: #ff6f61; }
+
+.btn-home { background-color: #ff928b; color: #F7F4F3; }
+.btn-home:hover { background-color: #ff6f61; }
+
+.btn-delete { background-color: #95BDE6; color: #fff; }
+.btn-delete:hover { background-color: #6ea0d4; }
+
+*/
+/*  table  *//*
+
+.pigment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.pigment-table th, .pigment-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.pigment-table th {
+    background-color: #CCD260;
+    color: #F7F4F3;
+}
+
+.pigment-table tr:nth-child(even) {
+    background-color: #F7F4F3;
+}
+
+*/
+/*.pigment-table img {
+    max-width: 100px;*//*
+
+.pigment-table img, .edit-form img {
+    width: 150px;   */
+/* or whatever fixed width you want *//*
+
+    height: auto;
+    object-fit: cover; */
+/* keeps aspect ratio without stretching *//*
+
+}
+}
+
+saved-pigments {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+saved-pigments th, saved-pigments td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+saved-pigments th {
+    background-color: #CCD260;
+    color: #F7F4F3;
+}
+
+saved-pigments tr:nth-child(even) {
+    background-color: #F7F4F3;
+}
+
+*/
+/*
+saved-pigments img {
+    max-width: 100px;*//*
+
+saved-pigments img, .edit-form img {
+    width: 150px;   */
+/* or whatever fixed width you want *//*
+
+    height: auto;
+    object-fit: cover; */
+/* keeps aspect ratio without stretching *//*
+
+}
+
+
+*/
+/*  actions  *//*
+
+.actions a, .actions form {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+*/
+/*  links  *//*
+
+ {
+    text-decoration: none;
+    color: #F094A3;
+}
+*/
+/*  login page  *//*
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #F094A3;
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-container .btn {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ff928b;
+    color: #F7F4F3;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-container .btn:hover {background-color: #F094A3;}
+
+a:hover {text-decoration: underline;}
+
+*/
+/* body text */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F7F4F3;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* headers */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #F094A3;
+}
+
+
+
+/* bottom navbar (navbar-b) */
+.navbar-b {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #CCD260;  /* your existing color */
+    color: #F7F4F3;
+    display: flex;
+    justify-content: center;   /* center links horizontally */
+    padding: 10px 0;
+    z-index: 1000;             /* stays on top of other content */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+
+}
+
+/* links inside navbar-b */
+.navbar-b a {
+    text-decoration: none;
+    color: #F7F4F3;
+    font-weight: 600;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 6px;
+    background-color: #ff928b;
+    transition: background-color 0.3s;
+}
+
+.navbar-b a:hover {
+    background-color: #ff6f61;
+}
+/* buttons */
+.btn, .btn-add, .btn-home, .btn-delete, .btn-cancel, .btn-save, .btn-edit {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.btn { background-color: #ff928b; color: #F7F4F3; }
+.btn:hover { background-color: #ff6f61; }
+
+.btn-save { background-color: #ff928b; color: #F7F4F3; }
+.btn-save:hover { background-color: #ff6f61; }
+
+.btn-add { background-color: #ff928b; color: #F7F4F3; }
+.btn-add:hover { background-color: #ff6f61; }
+
+.btn-home { background-color: #ff928b; color: #F7F4F3; }
+.btn-home:hover { background-color: #ff6f61; }
+
+.btn-delete { background-color: #95BDE6; color: #fff; }
+.btn-delete:hover { background-color: #6ea0d4; }
+
+.btn-cancel { background-color: #ff928b; color: #F7F4F3; }
+.btn-cancel:hover { background-color: #ff6f61; }
+
+.btn-edit { background-color: #ff928b; color: #F7F4F3; }
+.btn-edit:hover { background-color: #ff6f61; }
+
+.btn-heart { background-color: #ff928b; color: #F7F4F3; }
+.btn-heart:hover { background-color: #ff6f61; }
+
+/* table */
+.pigment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.pigment-table th, .pigment-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pigment-table th {
+    background-color: #CCD260;
+    color: #F7F4F3;
+}
+
+.pigment-table tr:nth-child(even) {
+    background-color: #F7F4F3;
+}
+
+/* saved table */
+.saved-pigments {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.saved-pigments th, .saved-pigments td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.saved-pigments th {
+    background-color: #CCD260;
+    color: #F7F4F3;
+}
+
+.saved-pigments tr:nth-child(even) {
+    background-color: #F7F4F3;
+}
+
+/* images in table & edit form */
+.saved-pigments img,
+.pigment-table img,
+.edit-form img,
+.pigment img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;  /* keeps aspect ratio, crops if needed */
+    display: block;
+    margin: 0 auto;
+}
+/* images in view_one */
+.images {
+    display: flex;
+    gap: 20px;              /* spacing between blocks */
+    justify-content: left; /* center the row */
+    flex-wrap: wrap;        /* allow wrapping on small screens */
+}
+
+.image-block {
+    text-align: center;     /* center the heading + image */
+}
+
+.image-block img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* actions */
+.actions a, .actions form {
+    display: inline-block;
+    margin-right: 3px;
+}
+/* force all inputs in login/register forms to show properly */
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    display: block;
+    width: 100%;        /* full width of container */
+    max-width: 400px;   /* optional: limits very wide screens */
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* ensures padding doesn't break width */
+}
+
+/* login page */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #F094A3;
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-container .btn {
+    width: 100%;
+    font-size: 16px;
+}

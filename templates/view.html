@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pigments</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>Pigments</h2>
+
+  <table class="pigment-table">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Kremer ID</th>
+        <th>Name</th>
+        <th>FCIR</th>
+        <th>CIR</th>
+        <th>True Color</th>
+        <th>FCIR Image</th>
+        <th>CIR Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pigment in pigments %}
+      <tr>
+        <td>{{ pigment.position }}</td>
+        <td>{{ pigment.kremer_id }}</td>
+        <td>
+          <a href="{{ url_for('view_one', pid=pigment.id) }}">{{ pigment.pigment_name }}</a>
+        </td>
+        <td>{{ pigment.fcir }}</td>
+        <td>{{ pigment.cir }}</td>
+        <td>
+          {% if pigment.image_truecolor %}
+            <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_truecolor) }}" alt="True Color">
+          {% endif %}
+        </td>
+        <td>
+          {% if pigment.image_fcir %}
+            <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_fcir) }}" alt="FCIR">
+          {% endif %}
+        </td>
+        <td>
+          {% if pigment.image_cir %}
+            <img src="{{ url_for('static', filename='uploads/' ~ pigment.image_cir) }}" alt="CIR">
+          {% endif %}
+        </td>
+        <td class="actions">
+          {% if current_user.is_authenticated %}
+            <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
+              {% if pigment.id in saved_ids %}
+                <button type="submit" class="btn-save" style="background-color:#F094A3;">♥</button>
+              {% else %}
+                <button type="submit" class="btn-save">♡</button>
+              {% endif %}
+            </form>
+          {% endif %}
+          {% if current_user.is_authenticated and current_user.is_admin %}
+            <a class="btn-edit" href="{{ url_for('edit', pid=pigment.id) }}">Edit</a>
+            <form action="{{ url_for('delete_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
+              <button type="submit" class="btn-delete" onclick="return confirm('Delete this pigment?');">Delete</button>
+            </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Bottom Navbar -->
+  <div class="navbar-b">
+    <a href="{{ url_for('home') }}">⌂</a>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('profile') }}">Profile</a>
+      {% if current_user.is_admin %}
+        <a href="{{ url_for('add') }}">Add Pigment</a>
+        <a href="{{ url_for('admin_users') }}">All Users</a>
+      {% endif %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+  </div>
+</body>
+</html>

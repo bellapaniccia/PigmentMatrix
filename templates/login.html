@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <form method="POST">
+        <label>Username or Email:</label>
+        <input type="text" name="login" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        <a href="{{ url_for('register') }}">Register</a> |
+        <a href="{{ url_for('reset_password') }}">Forgot Password?</a>
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash-messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <div class="navbar-b">
+        <a href="{{ url_for('home') }}">⌂</a>
+        <a href="{{ url_for('view') }}">View Pigments</a>
+
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}">Profile</a>
+
+        {% if current_user.is_admin %}
+        <a href="{{ url_for('add') }}">Add Pigment</a>
+        <a href="{{ url_for('admin_users') }}">All Users</a>
+        {% endif %}
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

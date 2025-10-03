@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ current_user.username }}'s Saved Pigments</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+
+
+    <div class="navbar-b">
+  <a href="{{ url_for('home') }}">⌂ Home</a>
+  <a href="{{ url_for('view') }}">All Pigments</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+  </style>
+</head>
+<body>
+
+<h1>{{ current_user.username }}'s Saved Pigments</h1>
+
+{% if pigments %}
+<table class="saved-pigments">
+  <thead>
+  <tr>
+    <th>Kremer ID</th>
+    <th>Name</th>
+    <th>FCIR</th>
+    <th>CIR</th>
+    <th>Truecolor</th>
+    <th>FCIR Image</th>
+    <th>CIR Image</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for pigment in pigments %}
+  <tr>
+    <td>{{ pigment.kremer_id or "-" }}</td>
+    <td>{{ pigment.fcir or "-" }}</td>
+    <td>{{ pigment.cir or "-" }}</td>
+    <td>
+      <a href="{{ url_for('view_one', pid=pigment.id) }}">{{ pigment.pigment_name }}</a>
+    </td>
+    <td><img src="{{ url_for('static', filename='uploads/' ~ pigment.image_truecolor) }}" alt="{{ pigment.pigment_name }} Truecolor"></td>
+    <td><img src="{{ url_for('static', filename='uploads/' ~ pigment.image_fcir) }}" alt="{{ pigment.pigment_name }} FCIR Image"></td>
+    <td><img src="{{ url_for('static', filename='uploads/' ~ pigment.image_cir) }}" alt="{{ pigment.pigment_name }} CIR Image"></td>
+    <td>
+      <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST">
+        <button type="submit" class="save-btn">
+          {% if pigment in current_user.saved_pigments %}
+            ♥︎
+          {% else %}
+            ♡ Save
+          {% endif %}
+        </button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p style="text-align:center;">No saved pigments yet.</p>
+{% endif %}
+
+<div class="navbar-b">
+  <a href="{{ url_for('home') }}">⌂</a>
+  <a href="{{ url_for('view') }}">All Pigments</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+</body>
+</html>

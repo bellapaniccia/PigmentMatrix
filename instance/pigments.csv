@@ -1,0 +1,21 @@
+kremer_id,pigment_name,fcir,cir,image_truecolor,image_fcir,image_cir
+,,,,,,
+import csv
+
+@app.route('/export_csv')
+def export_csv():
+    pigments = Pigment.query.all()
+    filepath = os.path.join("static", "pigments.csv")
+
+    with open(filepath, "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["ID", "Kremer ID", "Pigment Name", "FCIR", "CIR",
+                         "Truecolor Image", "FCIR Image", "CIR Image", "Position"])
+        for p in pigments:
+            writer.writerow([
+                p.id, p.kremer_id, p.pigment_name, p.fcir, p.cir,
+                p.image_truecolor, p.image_fcir, p.image_cir, p.position
+            ])
+
+    return f"Exported to {filepath}"
+

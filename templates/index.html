@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Pigment</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+<h2>Add Pigment</h2>
+
+<!--
+    <!!! IMPORTANT: enctype="multipart/form-data" so files upload!!!
+-->
+<form action="{{ url_for('add') }}" method="POST" enctype="multipart/form-data">
+    <label>Kremer ID:</label>
+    <input type="text" name="kremer_id"><br><br>
+
+    <label>Pigment Name:</label>
+    <input type="text" name="pigment_name" required><br><br>
+
+    <label>FCIR:</label>
+    <input type="text" name="fcir" required><br><br>
+
+    <label>CIR:</label>
+    <input type="text" name="cir" required><br><br>
+
+    <label>Truecolor Image:</label>
+    <input type="file" name="image_truecolor"><br><br>
+
+    <label>FCIR Image:</label>
+    <input type="file" name="image_fcir"><br><br>
+
+    <label>CIR Image:</label>
+    <input type="file" name="image_cir"><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<br>
+<a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

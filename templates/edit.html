@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Pigment</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<h2>Edit Pigment</h2>
+
+<form method="POST" enctype="multipart/form-data" class="edit-form">
+    <div class="form-row">
+        <div class="form-column">
+            <label>Kremer ID</label>
+            <input type="text" name="kremer_id" value="{{ pigment.kremer_id }}">
+
+            <label>Pigment Name</label>
+            <input type="text" name="pigment_name" value="{{ pigment.pigment_name }}">
+
+            <label>FCIR</label>
+            <input type="text" name="fcir" value="{{ pigment.fcir }}">
+
+            <label>CIR</label>
+            <input type="text" name="cir" value="{{ pigment.cir }}">
+        </div>
+
+        <div class="form-column">
+            <label>True Color Image</label>
+            <input type="file" name="image_truecolor">
+            {% if pigment.image_truecolor %}
+            <img src="{{ url_for('static', filename='uploads/' + pigment.image_truecolor) }}" class="edit-image">
+            {% endif %}
+
+            <label>FCIR Image</label>
+            <input type="file" name="image_fcir">
+            {% if pigment.image_fcir %}
+            <img src="{{ url_for('static', filename='uploads/' + pigment.image_fcir) }}" class="edit-image">
+            {% endif %}
+
+            <label>CIR Image</label>
+            <input type="file" name="image_cir">
+            {% if pigment.image_cir %}
+            <img src="{{ url_for('static', filename='uploads/' + pigment.image_cir) }}" class="edit-image">
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- buttons -->
+    <div class="form-buttons">
+        <button type="submit" class="btn-save">Save</button>
+        <a href="{{ url_for('view') }}" class="btn-cancel">Cancel</a>
+    </div>
+</form>
+
+<!-- bottom navbar only -->
+<div class="navbar-b">
+    <a href="{{ url_for('home') }}">⌂</a>
+    <a href="{{ url_for('view') }}">View Pigments</a>
+
+    {% if current_user.is_authenticated%}
+    <a href="{{ url_for('profile') }}">Profile</a>
+
+    {% if (current_user.is_authenticated and current_user.is_admin)) %}
+    <a href="{{ url_for('add') }}">Add Pigment</a>
+    <a href="{{ url_for('admin_users') }}">All Users</a>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+</div>
+
+
+</body>
+</html>
