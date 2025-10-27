@@ -47,7 +47,7 @@
     <td><img src="{{ url_for('static', filename='uploads/' ~ pigment.image_cir) }}" alt="{{ pigment.pigment_name }} CIR Image"></td>
     <td>
       <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST">
-        <button type="submit" class="save-btn">
+        <button type="submit" class="btn-save">
           {% if pigment in current_user.saved_pigments %}
             ♥︎
           {% else %}

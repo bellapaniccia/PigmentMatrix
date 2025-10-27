@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,29 +24,24 @@
     </div>
 </div>
 
-<div class="actions" style="margin-top:20px;">
-    <!-- Previous / Next -->
-    <a href="{{ url_for('view_one', pid=prev_id) }}" class="btn">Previous</a>
-    <a href="{{ url_for('view_one', pid=next_id) }}" class="btn">Next</a>
-
-    <!-- Save / Favorite -->
+<!-- Bottom Navbar -->
+<div class="navbar-b">
+    <a href="{{ url_for('view') }}" class="btn-home"> All Pigments</a>
+    <!-- Previous / Next always visible -->
+    <a href="{{ url_for('view_one', pid=prev_id) }}" class="btn">←</a>
+     <!-- Save / Favorite -->
     {% if current_user.is_authenticated %}
     <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
         {% if pigment.id in saved_ids %}
-            <button type="submit" class="btn-save" style="background-color:#F094A3;">♥</button>
+            <button type="submit" class="btn-save" style="background-color:#E95C2E;">♥</button>
         {% else %}
             <button type="submit" class="btn-save">♡</button>
         {% endif %}
     </form>
     {% endif %}
+    <a href="{{ url_for('view_one', pid=next_id) }}" class="btn">→</a>
 
-    <!-- Back -->
-    <a href="{{ url_for('view') }}" class="btn-home">Back</a>
-</div>
 
-<!-- Bottom Navbar -->
-<div class="navbar-b">
-    <a href="{{ url_for('home') }}">⌂</a>
     {% if current_user.is_authenticated %}
         <a href="{{ url_for('profile') }}">Profile</a>
         {% if current_user.is_admin %}

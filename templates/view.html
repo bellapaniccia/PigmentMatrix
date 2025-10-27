@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,15 +51,15 @@
           {% if current_user.is_authenticated %}
             <form action="{{ url_for('save_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
               {% if pigment.id in saved_ids %}
-                <button type="submit" class="btn-save" style="background-color:#F094A3;">♥</button>
+                <button type="submit" class="btn-save" style="background-color:#E95C2E;">♥</button>
               {% else %}
                 <button type="submit" class="btn-save">♡</button>
               {% endif %}
             </form>
           {% endif %}
           {% if current_user.is_authenticated and current_user.is_admin %}
-            <a class="btn-edit" href="{{ url_for('edit', pid=pigment.id) }}">Edit</a>
-            <form action="{{ url_for('delete_pigment', pid=pigment.id) }}" method="POST" style="display:inline;">
+            <a class="btn-edit" href="{{ url_for('edit', pigment_id=pigment.id) }}">Edit</a>
+            <form action="{{ url_for('delete_pigment', pigment_id=pigment.id) }}" method="POST" style="display:inline;">
               <button type="submit" class="btn-delete" onclick="return confirm('Delete this pigment?');">Delete</button>
             </form>
           {% endif %}
